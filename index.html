@@ -2,11 +2,28 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<link rel="stylesheet" href="styles/feed.css" type="text/css">
 		<script src="http://cdn.pubnub.com/pubnub.min.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
 		<script type="text/javascript" src="lib/pubnub_init.js"></script>
 	</head>
 	<body>
-		Hello World
+		<!-- FEED MARKUP -->
+		<main>
+			<header>
+				<img id="mini-logo" src="images/mini_logo.png"/>
+				<nav id="view-navigation">
+					<button> <img id="prev-view" src="images/prev_view.png"/> </button>
+					<h1> feedbat </h1>
+					<button> <img id="mini_logo" src="images/next_view.png"/> </button>
+				</nav>
+			</header> 
+			<img id="current-feedbat" src="images/sample_feedbat.png"/>
+			<footer "comment-and-tip-container">
+				<button id="comment-button" class="feed-control-button"> <img src="images/comment_img.png"/> </button>
+				<button id="tip-button" class="feed-control-button"> <img src="images/tip_img.png"/> </button>
+			</footer>
+		</main>
+		<!-- END FEED MARKUP -->
 	</body>
 </html>
