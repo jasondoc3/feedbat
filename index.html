@@ -6,6 +6,7 @@
 		
 		<link rel="stylesheet" href="styles/feed.css" type="text/css">
 		<link rel="stylesheet" href="styles/comment_view.css" type="text/css">
+		<link rel="stylesheet" href="lib/animate.css" type="text/css">
 
 		<script src="http://cdn.pubnub.com/pubnub.min.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -22,7 +23,7 @@
 
 	<body ng-app='FeedbatApp' ng-controller="FeedbatController">
 		<!-- FEED MARKUP -->
-		<!-- <main>
+		<main>
 			<header>
 				<img id="mini-logo" src="images/mini_logo.png"/>
 				<nav id="view-navigation">
@@ -33,14 +34,14 @@
 			</header> 
 			<img id="current-feedbat" src="images/sample_feedbat.png"/>
 			<footer "comment-and-tip-container">
-				<button id="comment-button" class="feed-control-button"> <img src="images/comment_img.png"/> </button>
+				<button id="comment-button" class="feed-control-button" ng-click="openCommentView()"> <img src="images/comment_img.png"/> </button>
 				<button id="tip-button" class="feed-control-button"> <img src="images/tip_img.png"/> </button>
 			</footer>
-		</main> -->
+		</main> 
 		<!-- END FEED MARKUP -->
 
 		<!-- START COMMENT VIEW -->
-		<main id="comment_view">
+		<main id="comment_view" class="hide-sub-view">
 			<header><img src="images/comment_close_img.png"/></header>
 			<ul id="comment_view_comments">
 				<li>Shit nigga look at all those purple penguins. Shit nigga look at all those purple penguins. Shit nigga look at all those purple penguins.</li>
@@ -50,7 +51,7 @@
 		<!-- END COMMENT VIEW -->
 
 		<!-- START TIP VIEW -->
-		<main id="tip_view"></main>
+		<!--<main id="tip_view"></main> -->
 		<!-- END TIP VIEW -->
 	</body>
 </html>

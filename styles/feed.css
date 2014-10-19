@@ -29,7 +29,7 @@ header {
 	}
 		header #view-navigation h1 {
 			display:inline;
-			font-size:4em;
+			font-size:1.5em;
 			color:#80277E;
 			margin:0;
 			padding:0;
@@ -40,7 +40,7 @@ header {
 			border:none;
 		}
 			header #view-navigation button img {
-				height: 4em;
+				height: 1.5em;
 			}
 
 #current-feedbat {
@@ -48,6 +48,7 @@ header {
 	position:fixed;
 	top:0px;
 	left:0px;
+
 	width:100%;
 	margin:auto;
 	z-index:-1;
@@ -81,15 +82,7 @@ footer {
 			#tip-button img {
 				height: 70%;
 			}
-			
-/* scott's shit */
-.hidden {display:none;}
-#comment_view,#tip_view{
-	height:100%;
-	width:100%;
-	position:absolute;
-	left:0;top:0;
-	background-color:purple;
-	opacity:0.7;
-	z-index:5;
+
+.hide-sub-view {
+	display:none;
 }

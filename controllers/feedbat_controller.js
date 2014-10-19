@@ -7,11 +7,11 @@ FeedbatApp.controller('FeedbatController', function ($scope) {
 		alert('called');
 	}
 
-	$scope.openCommentView = function(){
-		$("#comment_view").removeClass().addClass("animated bounceInUp")
+	$scope.openCommentView= function(){
+		$("#comment_view").removeClass('hide-sub-view').addClass("animated bounceInUp")
 	}
 	$scope.openTipView = function(){
-		$("#tip_view").removeClass().addClass("animated bounceInUp")
+		$("#tip_view").removeClass('hide-sub-view').addClass("animated bounceInUp")
 	}
 });
 

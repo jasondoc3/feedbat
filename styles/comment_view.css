@@ -1,6 +1,6 @@
 #comment_view {
+	z-index:5;
 	background-color:#B769AA;
-	display:block;
 	position:fixed;
 	top:0px;
 	left:0px;
