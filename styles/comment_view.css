@@ -69,7 +69,7 @@
 	}
 		#comment_view_comments li {
 			position:relative;
-			display:inline-block;
+			display:block;
 			list-style-type:none;
 			width:90%;
 			color:#626262;
@@ -79,11 +79,12 @@
 			background-color:#E2E0D8;
 		}
 
-		#comment_blurb {
+		.comment_blurb {
+			display: block;
 			position:absolute;
 			width:10%;
-			left:0px;
-			bottom:0px;
+			left: 6%;
+			bottom: -20%;		
 		}
 		#comment_input {
 			position:absolute;
