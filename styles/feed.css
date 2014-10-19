@@ -72,14 +72,14 @@ header {
 			height:30%;
 		}
 
-#downvote-current-feedbat {
+#upvote-current-feedbat {
 	position:fixed;
 	width:15%;
 	bottom:2%;
 	left:76%;
 	opacity:.75;
 }
-#upvote-current-feedbat {
+#downvote-current-feedbat {
 	position:fixed;
 	width:15%;
 	bottom:1%;

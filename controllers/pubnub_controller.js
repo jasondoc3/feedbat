@@ -58,7 +58,7 @@ function getVoteData(random_index) {
 			$('#current-feedbat').attr('src', window.feedbats[random_index].url);
 			$('#downvote-value').html(vote_data.downvotes);
 			$('#upvote-value').html(vote_data.upvotes);
-			$('#upvotes-button, #downvotes-button').attr("data-channel", window.feedbats[random_index].id + "-feedbat");
+			$('#upvote-current-feedbat, #downvote-current-feedbat').attr("data-channel", window.feedbats[random_index].id + "-feedbat");
     }
   });
 }
