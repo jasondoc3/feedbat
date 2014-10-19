@@ -88,10 +88,6 @@ FeedbatApp.controller('FeedbatController', function ($scope) {
 	
 });
 
-$(document).ready(function () {
-	
-});
-
 /* scott's crap */
 function Swipeable(el){
 	var start_coords = {};
@@ -148,5 +144,6 @@ function Swipeable(el){
 
 $(document).ready(function () {
 var x = new Swipeable($("#current-feedbat")[0]);
+window.scrollTo(0,1);
 	
 });
