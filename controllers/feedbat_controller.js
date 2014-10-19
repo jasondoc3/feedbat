@@ -38,46 +38,8 @@ FeedbatApp.controller('FeedbatController', function ($scope) {
 				$("#" + this_view).addClass('hide-view')
 			}, 1000);*/
 		}
-		// click previous view
-		if(where === 'prev') {
-			for(i=0;i<$scope.titles.length;i++) {
-				if($('#view_title').text() == $scope.titles[i]) {
-					this_view = $scope.titles[i]
-					if(i==0) {
-						prev_view = $scope.titles[$scope.titles.length - 1];
-						$('#view_title').text($scope.titles[$scope.titles.length - 1])
-					}
-					else{
-						prev_view = $scope.titles[i-1];
-						$('#view_title').text($scope.titles[i-1])
-					}
-					break;
-				}
-			}
-			switchData(next_view);
-			$("#" + this_view).removeClass('bring-to-front animated bounceInRight bounceInLeft');
-			$("#" + prev_view).removeClass('hide-view').addClass("animated bounceInLeft bring-to-front");
-		}
 	},
-
-	$scope.takeMeToTheFeed = function() {
-		if($('#view_title').text() == 'feed')
-			return;
-
-		var i;
-		var curr_view;
-		for(i=0;i<$scope.titles.length;i++) {
-			if($('#view_title').text() == $scope.titles[i]) {
-				curr_view = $scope.titles[i];
-				break;
-			}
-		}
-		console.log(curr_view);
-		$("#" + curr_view).removeClass('bring-to-front animated bounceInRight bounceInLeft');
-		$("#feedbat").removeClass('hide-view').addClass("animated bounceInRight bring-to-front");
-		$('#view_title').text('feedbat');
-	},
-
+	
 	$scope.openCommentView = function(){
 		$("#comment_view").removeClass('hide-view animated bounceOutDown').addClass("animated bounceInUp ");
 

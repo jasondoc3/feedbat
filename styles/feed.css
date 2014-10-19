@@ -43,8 +43,8 @@ header {
 		display:block;
 		text-align:center;
 		height:10% !important;
-		width:50%;
-		margin-left:25%;
+		width:45%;
+		margin-left:30%;
 		margin-right:25%;
 		text-align:center;
 		z-index:20;
@@ -65,27 +65,11 @@ header {
 			padding:0;
 			height:100%;
 		}
-		#prev_button_container {
-			float:left;
-			width:15%;
-			margin:0;
-			padding:0;
-			height:100%;
-		}
-		#header-nav #prev_view {
-			border:none;
-			background:none;
-			position:relative;
-			float:left;
-			margin-left:20%;
-			top:24%;
-			height:30%;
-		} 
 		#header-nav #next_view {
 			border:none;
 			background:none;
 			position:relative;
-			margin-right:20%;
+			margin-right:30%;
 			float:right;
 			top:24%;
 			height:30%;
