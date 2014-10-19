@@ -93,10 +93,10 @@ function Swipeable(el){
 		el.removeEventListener(end,self._onEnd);
 		if(e.x - start_coords.x > 100) {
 			$(el).addClass('animated fadeOutRight');
-			direction = 'right';aud.stop();aud.play();
+			direction = 'right';aud.play();
 		} else if(e.x - start_coords.x < -100) {
 			$(el).addClass('animated fadeOutLeft');
-			direction = 'left';aud.stop();aud.play();
+			direction = 'left';aud.play();
 		}
 
 		setTimeout(function() {
@@ -117,6 +117,7 @@ $(document).ready(function () {
 var x = new Swipeable($("#current-feedbat")[0]);
 
 aud = new Audio("ward_activate.mp3");
+aud.load();
 window.scrollTo(0,1);
 	var comment_input = $("#comment_input")[0];
 	comment_input.addEventListener('keydown',function(e){
