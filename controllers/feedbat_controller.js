@@ -1,6 +1,8 @@
 
 
-var FeedbatApp = angular.module('FeedbatApp', ['ngTouch']);
+var FeedbatApp = angular.module('FeedbatApp', []).run(function() {
+    FastClick.attach(document.body);
+  });
 
 FeedbatApp.controller('FeedbatController', function ($scope) {
 	$scope.view_title = "feed",
@@ -59,7 +61,7 @@ FeedbatApp.controller('FeedbatController', function ($scope) {
 	$scope.takeMeToTheFeed = function() {
 		if($('#view_title').text() == 'feed')
 			return;
-		
+
 		var i;
 		var curr_view;
 		for(i=0;i<$scope.titles.length;i++) {
