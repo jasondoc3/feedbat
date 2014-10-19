@@ -16,11 +16,15 @@ function afterPhotoUpload(event, data) {
 }
 
 function createNewChannel(image_id, image_url) {
+	$('#downvote-value').html(0);
+	$('#upvote-value').html(0);
+	parseComments([]);
 	pubnub.publish({
 		channel: image_id + "-feedbat",
 		message: {
 			upvotes: 0,
-			downvotes: 0
+			downvotes: 0,
+			comments:[]
 		},
 		callback: function(m) {
 			/* so the user can subscribe to his / her current channel */
