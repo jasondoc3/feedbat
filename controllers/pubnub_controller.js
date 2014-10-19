@@ -179,6 +179,7 @@ function switchData(next_view) {
 		if(localStorage.feed_bat_image_channel) {
 			pubnub.unsubscribe({ channel: localStorage.feed_bat_image_channel });
 		}
+		$('#current-feedbat').attr('src', "");
 		var random_index = Math.floor(Math.random()*window.feedbats.length);
 		getVoteData(random_index);
 	}

@@ -54,6 +54,7 @@ FeedbatApp.controller('FeedbatController', function ($scope) {
 					break;
 				}
 			}
+			switchData(next_view);
 			$("#" + this_view).removeClass('bring-to-front animated bounceInRight bounceInLeft');
 			$("#" + prev_view).removeClass('hide-view').addClass("animated bounceInLeft bring-to-front");
 		}
