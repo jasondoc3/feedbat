@@ -31,17 +31,17 @@
 			<img id="current-feedbat" src="images/sample_feedbat.png"/>
 			<footer "comment-and-tip-container">
 				<button ng-click="openCommentView()" id="comment-button" class="feed-control-button"> <img src="images/comment_img.png"/> </button>
-				<button id="tip-button" class="feed-control-button"> <img src="images/tip_img.png"/> </button>
+				<button ng-click="openTipView()" id="tip-button" class="feed-control-button"> <img src="images/tip_img.png"/> </button>
 			</footer>
 		</main>
 		<!-- END FEED MARKUP -->
 
 		<!-- START COMMENT VIEW -->
-		<main id="comment_view" class="animated bounceInUp"></main>
+		<main id="comment_view" class="hidden"></main>
 		<!-- END COMMENT VIEW -->
 
 		<!-- START TIP VIEW -->
-		<main id="tip_view"></main>
+		<main id="tip_view" class="hidden"></main>
 		<!-- END TIP VIEW -->
 	</body>
 </html>
