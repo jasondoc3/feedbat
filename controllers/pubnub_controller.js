@@ -34,7 +34,7 @@ function getFeedBatData() {
 	pubnub.history({
     channel: 'feed_bat',
     count: 10,
-    callback: function(feedbats) { 
+    callback: function(feedbats) {
     	window.feedbats = feedbats[0];
     	var random_index = Math.floor(Math.random()*window.feedbats.length);
 
@@ -58,8 +58,45 @@ function getVoteData(random_index) {
 			$('#current-feedbat').attr('src', window.feedbats[random_index].url);
 			$('#downvote-value').html(vote_data.downvotes);
 			$('#upvote-value').html(vote_data.upvotes);
+			$('#upvotes-button, #downvotes-button').attr("data-channel", window.feedbats[random_index].id + "-feedbat");
     }
   });
+}
+
+function upVote() {
+	var channel = $(this).attr('data-channel');
+	var upvotes = parseInt($('#upvote-value').html()) + 1;
+	var downvotes = parseInt($('#downvote-value').html());
+
+	pubnub.publish({
+		channel: channel,
+		message: {
+			upvotes: upvotes,
+			downvotes: downvotes
+		},
+		callback: function(m) {
+			var val = parseInt($('#upvote-value').html());
+			$('#upvote-value').html(val + 1);
+		}
+	});
+}
+
+function downVote() {
+	var channel = $(this).attr('data-channel');
+	var upvotes = parseInt($('#upvote-value').html());
+	var downvotes = parseInt($('#downvote-value').html()) + 1;
+
+	pubnub.publish({
+		channel: channel,
+		message: {
+			upvotes: upvotes,
+			downvotes: downvotes
+		},
+		callback: function(m) {
+			var val = parseInt($('#downvote-value').html());
+			$('#downvote-value').html(val + 1);
+		}
+	});
 }
 
 function listenForFeedBats(feedbat) {
