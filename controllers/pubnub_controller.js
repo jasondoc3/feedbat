@@ -59,6 +59,7 @@ function getVoteData(random_index) {
 			$('#downvote-value').html(vote_data.downvotes);
 			$('#upvote-value').html(vote_data.upvotes);
 			$('#upvote-current-feedbat, #downvote-current-feedbat').attr("data-channel", window.feedbats[random_index].id + "-feedbat");
+			setTimeout(function() { $('#current-feedbat').removeClass(); }, 600);
 
 			pubnub.subscribe({
 				channel: window.feedbats[random_index].id + '-feedbat',

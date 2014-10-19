@@ -121,11 +121,25 @@ function Swipeable(el){
 	};
 	
 	this._onEnd = function(e){
+		var direction;
 		e = self.getCoords(e);
 		el.removeEventListener(end,self._onEnd);
-		if(e.x - start_coords.x > 100) $(el).addClass('animated fadeOutRight');
-		else if(e.x - start_coords.x < -100) $(el).addClass('animated fadeOutLeft');
-		console.log("bye");
+		if(e.x - start_coords.x > 100) {
+			$(el).addClass('animated fadeOutRight');
+			direction = 'right';
+		} else if(e.x - start_coords.x < -100) {
+			$(el).addClass('animated fadeOutLeft');
+			direction = 'left';
+			console.log("bye");
+		}
+
+		setTimeout(function() {
+			if(direction == "right") {
+				$('#upvote-current-feedbat').click();
+			} else {
+				$('#downvote-current-feedbat').click();
+			}
+		}, 300);
 	};
 	
 	el.addEventListener(start,this._onStart,false);
