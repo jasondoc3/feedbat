@@ -127,7 +127,6 @@ function downVote() {
 	});
 }
 
-
 function addComment(comm) {
 	var channel = $("#upvote-current-feedbat").attr('data-channel');
 	var upvotes = parseInt($('#upvote-value').html());
@@ -147,6 +146,38 @@ function addComment(comm) {
 	});
 }
 
+function switchData(next_view) {
+	if(next_view == "me") {
+		var prev_channel = $('#upvote-current-feedbat').attr('data-channel');
+		pubnub.unsubscribe({ channel: prev_channel });
+		pubnub.history({
+			channel: localStorage.feed_bat_image_channel,
+			count: 1,
+			callback: function(m) {
+				var img_data = m[0][0];
+				$('#downvote-value').html(img_data.downvotes);
+				$('#upvote-value').html(img_data.upvotes);
+				// update comments
+
+				pubnub.subscribe({
+					channel: localStorage.feed_bat_image_channel,
+					message: function(m) { console.log(m) },
+					callback: function(m) {
+						$('#upvote-value').html(m.upvotes);
+						$('#downvote-value').html(m.downvotes);
+						parseComments(m.comments);
+					}
+			});
+			}
+		});
+	} else {
+		if(localStorage.feed_bat_image_channel) {
+			pubnub.unsubscribe({ channel: localStorage.feed_bat_image_channel });
+		}
+		var random_index = Math.floor(Math.random()*window.feedbats.length);
+		getVoteData(random_index);
+	}
+}
 
 function nextFeedBat(previous_channel) {
 	var random_index = Math.floor(Math.random()*window.feedbats.length);

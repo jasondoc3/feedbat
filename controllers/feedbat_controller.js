@@ -30,6 +30,8 @@ FeedbatApp.controller('FeedbatController', function ($scope) {
 					break;
 				}
 			}
+
+			switchData(next_view);
 			$("#" + this_view).removeClass('bring-to-front animated bounceInRight bounceInLeft');
 			$("#" + next_view).removeClass('hide-view').addClass("animated bounceInRight bring-to-front");
 			/*setTimeout(function() {
@@ -69,17 +71,19 @@ FeedbatApp.controller('FeedbatController', function ($scope) {
 				break;
 			}
 		}
+		console.log(curr_view);
 		$("#" + curr_view).removeClass('bring-to-front animated bounceInRight bounceInLeft');
 		$("#feedbat").removeClass('hide-view').addClass("animated bounceInRight bring-to-front");
 		$('#view_title').text('feedbat');
 	},
 
 	$scope.openCommentView = function(){
-		$("#comment_view").removeClass('hide-view animated bounceOutDown').addClass("animated bounceInUp ")
+		$("#comment_view").removeClass('hide-view animated bounceOutDown').addClass("animated bounceInUp ");
+
 	},
 	
 	$scope.closeCommentView = function() {
-		$("#comment_view").removeClass('animated bounceInUp').addClass("animated bounceOutDown")
+		$("#comment_view").removeClass('animated bounceInUp').addClass("animated bounceOutDown");
 	},
 	
 	$scope.openTipView = function(){
