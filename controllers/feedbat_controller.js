@@ -93,10 +93,10 @@ function Swipeable(el){
 		el.removeEventListener(end,self._onEnd);
 		if(e.x - start_coords.x > 100) {
 			$(el).addClass('animated fadeOutRight');
-			direction = 'right';aud.play();
+			direction = 'right';aud.stop();aud.play();
 		} else if(e.x - start_coords.x < -100) {
 			$(el).addClass('animated fadeOutLeft');
-			direction = 'left';aud.play();
+			direction = 'left';aud.stop();aud.play();
 		}
 
 		setTimeout(function() {
