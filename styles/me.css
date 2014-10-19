@@ -6,6 +6,7 @@
 	padding:0;
 	width:100%;
 	height:100%;
+	background-color:#E4E2D9;
 }
 
 #upload_image {
@@ -45,5 +46,5 @@
 			position:relative;
 			bottom:28%;
 			font-size:5em;
-			color:#7F277D;
+			color:#BA9925;
 		}
