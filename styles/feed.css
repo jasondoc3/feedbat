@@ -53,6 +53,8 @@ header {
 			position:relative;
 			display: inline;
 			font-size:5em;
+			margin:0;
+			padding:0;
 			color:#80277E;
 		}
 		#header-nav #prev_view {
@@ -77,14 +79,14 @@ header {
 	width:15%;
 	bottom:2%;
 	left:76%;
-	opacity:.75;
+	opacity:.8;
 }
 #downvote-current-feedbat {
 	position:fixed;
 	width:15%;
 	bottom:1%;
 	right:76%;
-	opacity:.75;
+	opacity:.8;
 }
 #current-feedbat {
 	display:block;
