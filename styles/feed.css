@@ -1,6 +1,6 @@
 /* ------ FEED STYLES -------- */
 body {
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
 }
 button {
 	cursor:pointer;
@@ -20,7 +20,7 @@ header {
 	top:0px;
 	left:0px;
 	width:100%;
-	height:5%;
+	height:10%;
 	max-height:8%;
 	background-color:#E4E2D9;
 	opacity:.9;
@@ -32,7 +32,7 @@ header {
 		position:absolute;
 		top:1%;
 		left:1%;
-		height:3%;
+		height:6%;
 		margin:0;
 		padding:0;
 		z-index:20;
@@ -41,32 +41,31 @@ header {
 		position:absolute;
 		display:block;
 		text-align:center;
-		height:5%;
-		max-height:5%;
-		width:40%;
-		margin-left:30%;
-		margin-right:30%;
+		height:10% !important;
+		width:30%;
+		margin-left:35%;
+		margin-right:35%;
 		text-align:center;
 		z-index:20;
 	}
 		#header-nav h1 {
+			position:relative;
 			display: inline;
-			font-size:3.5em;
-			line-height:90%;
+			font-size:5em;
+			top:8%;
 			color:#80277E;
-			margin:0;
-			padding:0;
-			margin:5%;
 		}
 		#header-nav #prev_view {
+			position:relative;
 			float:left;
-			padding-top:3%;
-			height:50%;
+			top:24%;
+			height:30%;
 		}
 		#header-nav #next_view {
+			position:relative;
 			float:right;
-			padding-top:3%;
-			height:50%;
+			top:24%;
+			height:30%;
 		}
 
 #current-feedbat {
