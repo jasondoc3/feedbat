@@ -54,7 +54,7 @@ function parseComments(arr){
 	feed_comments = new Array();
 	if(!arr) arr = [];
 	console.log(arr);
-	for(var i = 0; i < arr.length; i++) feed_comments.push(arr[i]);
+	for(var i = 0; i < arr.length; i++) if(arr[i] != "") feed_comments.push(arr[i]);
 	var cont = $("#comment_view_comments");
 	cont.empty();
 	for(var i = 0; i < feed_comments.length; i++) cont.append(
