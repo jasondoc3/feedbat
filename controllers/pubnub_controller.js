@@ -57,7 +57,7 @@ function parseComments(arr){
 	for(var i = 0; i < arr.length; i++) feed_comments.push(arr[i]);
 	var cont = $("#comment_view_comments");
 	cont.empty();
-	for(var i = 0; i < feed_comments.length; i++) cont.append($("<li />",{text:feed_comments[i]}));
+	for(var i = 0; i < feed_comments.length; i++) cont.append($("<li />",{class:"comment_blurb",text:feed_comments[i]}));
 }
 
 
@@ -130,7 +130,7 @@ function downVote() {
 function addComment(comm) {
 	var channel = $("#upvote-current-feedbat").attr('data-channel');
 	var upvotes = parseInt($('#upvote-value').html());
-	var downvotes = parseInt($('#downvote-value').html()) + 1;
+	var downvotes = parseInt($('#downvote-value').html());
 	feed_comments.push(comm);
 
 	pubnub.publish({
