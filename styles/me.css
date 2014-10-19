@@ -51,7 +51,7 @@
 		}
 			#my-currrent-feedbat-stats h3 {
 				position:relative;
-				bottom:31%;
+				bottom:36%;
 				font-size:5em;
 				color:#850082;
 			}
@@ -63,9 +63,9 @@
 			width:100%;
 			height:50%;
 		}
-		#add-new-feedbat h3 {
-			position:relative;
-			bottom:31%;
-			font-size:5em;
-			color:#9F7D03;
-		}
+			#add-new-feedbat h3 {
+				position:relative;
+				bottom:36%;
+				font-size:5em;
+				color:#9F7D03;
+			}
