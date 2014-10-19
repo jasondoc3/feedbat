@@ -1,5 +1,10 @@
 /* ------ FEED STYLES -------- */
-
+body {
+	font-family: 'Open Sans', sans-serif;
+}
+button {
+	cursor:pointer;
+}
 header {
 	display:block;
 	position:fixed;
@@ -19,15 +24,24 @@ header {
 		max-height:100%;
 		
 	}
-	header #view-navigation h1 {
-		display:inline;
-		color:#80277E;
-		margin:0;
-		padding:0;
+	header #view-navigation {
+		height:100%;
 	}
-	header #view-navigation img {
-		width:5%;
-	}
+		header #view-navigation h1 {
+			display:inline;
+			font-size:4em;
+			color:#80277E;
+			margin:0;
+			padding:0;
+			vertical-align: center;
+		}
+		header #view-navigation button {
+			background:none;
+			border:none;
+		}
+			header #view-navigation button img {
+				height: 4em;
+			}
 
 #current-feedbat {
 	display:block;

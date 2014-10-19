@@ -2,11 +2,13 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>feedbat social media feedback website</title>
+		<title>Feedbat</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
 		<link rel="stylesheet" href="styles/feed.css" type="text/css">
 		<script src="http://cdn.pubnub.com/pubnub.min.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+		
+		<script src="controllers/feedbat_controller.js"></script>
 		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans">
 		<script type="text/javascript" src="lib/api_init.js"></script>
 		<script type="text/javascript" src="lib/jquery.cloudinary.js"></script>
@@ -14,14 +16,14 @@
 		<meta name="description" content="feedbat is a social site where users can upload media anonymously, then receive feedback from other users about the media file they published.">
 		<meta name="author" content="your loving team of feedbat developers">
 	</head>
-	<body>
+	<body ng-app='FeedbatApp' ng-controller="FeedbatController">
 		<!-- FEED MARKUP -->
-		<main>
+		<main >
 			<header>
 				<img id="mini-logo" src="images/mini_logo.png"/>
 				<nav id="view-navigation">
-					<button> <img id="prev-view" src="images/prev_view.png"/> </button>
-					<h1> feedbat </h1>
+					<button ng-click="aTestFunction()"> <img id="prev-view" src="images/prev_view.png"/> </button>
+					<h1>{{ view_title }}</h1>
 					<button> <img id="mini_logo" src="images/next_view.png"/> </button>
 				</nav>
 			</header> 
@@ -32,5 +34,13 @@
 			</footer>
 		</main>
 		<!-- END FEED MARKUP -->
+
+		<!-- START COMMENT VIEW -->
+		<main id="comment_view"></main>
+		<!-- END COMMENT VIEW -->
+
+		<!-- START TIP VIEW -->
+		<main id="tip_view"></main>
+		<!-- END TIP VIEW -->
 	</body>
 </html>
