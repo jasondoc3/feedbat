@@ -1,6 +1,5 @@
 #me {
 	position:fixed;
-	background-color: red;
 	top:0;
 	left:0;
 	margin:0;
@@ -40,11 +39,11 @@
 		bottom:0;
 		left:0;
 		background-color:#FFC900;
+		text-align:center;
 	}
 		#me footer h3 {
+			position:relative;
+			bottom:28%;
 			font-size:5em;
-			margin:auto;
 			color:#7F277D;
-			vertical-align:middle;
-			text-align:center;
 		}

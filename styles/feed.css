@@ -1,6 +1,6 @@
 /* ------ FEED STYLES -------- */
 body {
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'Open Sans';
 }
 button {
 	cursor:pointer;
@@ -52,7 +52,7 @@ header {
 			position:relative;
 			display: inline;
 			font-size:5em;
-			top:8%;
+			top:3%;
 			color:#80277E;
 		}
 		#header-nav #prev_view {
