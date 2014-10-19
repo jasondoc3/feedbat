@@ -33,9 +33,9 @@
 		</header> 
 		<img id="mini-logo" ng-click="takeMeToTheFeed()" src="images/mini_logo.png"/>
 		<nav id="header-nav">	
-			<img id="prev_view" src="images/prev_view.png" ng-click="rotateParentViews('prev')"/>
+			<div id="prev_button_container" ng-click="rotateParentViews('prev')"><img id="prev_view" src="images/prev_view.png"/></div>
 			<h1 id="view_title">{{ view_title }}</h1>
-			<img id="next_view" src="images/next_view.png" ng-click="rotateParentViews('next')"/>
+			<div id="next_button_container"  ng-click="rotateParentViews('next')"><img id="next_view" src="images/next_view.png"/></div>
 		</nav>
 		<!-- END HEADER MARKUP -->
 
@@ -56,7 +56,7 @@
 			<img id="my-current-feedbat" src=""/>
 			<footer>
 				<section id="my-currrent-feedbat-stats" ng-click="openCommentView()">
-					<h3>This Feebat's Feedback</h3>
+					<h3>This Feedbat</h3>
 				</section>
 				<section id="add-new-feedbat">
 					<h3>New Feedbat</h3>
@@ -71,16 +71,27 @@
 			<header>
 				<section id="vote-counts">
 					<img class="vote-value-button" id="downvotes-button" src="images/thumbs_down.png" />
-					<h3 id="downvote-value" class="vote-value">10</h3>
+					<h3 id="downvote-value" class="vote-value">0</h3>
 					<img class="vote-value-button" id="upvotes-button" src="images/thumbs_up.png" />
-					<h3 id="upvote-value" class="vote-value">20</h3>
+					<h3 id="upvote-value" class="vote-value">0</h3>
 				</section>
-				<img id="close-comment-view" src="images/comment_close_img.png" ng-click="closeCommentView()"/></header>
-			<ul id="comment_view_comments">
-				<li>Shit nigga look at all those purple penguins. Shit nigga look at all those purple penguins. Shit nigga look at all those purple penguins.</li>
-				<li>asdfasdfa</li>
-			</ul>
-			<input id="comment_input" type="text" name="new-comment">
+				<img id="close-comment-view" src="images/comment_close_img.png" ng-click="closeCommentView()"/>
+			</header>
+			<div id="comment-wrapper">
+				<ul id="comment_view_comments">
+					<li>Shit nigga look at all those purple penguins. Shit nigga look at all those purple penguins. Shit nigga look at all those purple penguins.</li>
+					<li>asdfasdfa</li>
+					<li>Shit nigga look at all those purple penguins. Shit nigga look at all those purple penguins. Shit nigga look at all those purple penguins.</li>
+					<li>asdfasdfa</li>
+					<li>Shit nigga look at all those purple penguins. Shit nigga look at all those purple penguins. Shit nigga look at all those purple penguins.</li>
+					<li>asdfasdfa</li>
+					<li>Shit nigga look at all those purple penguins. Shit nigga look at all those purple penguins. Shit nigga look at all those purple penguins.</li>
+					<li>asdfasdfa</li>
+					<li>Shit nigga look at all those purple penguins. Shit nigga look at all those purple penguins. Shit nigga look at all those purple penguins.</li>
+					<li>asdfasdfa</li>
+				</ul>
+			</div>
+			<input id="comment_input" type="text" name="new-comment" value="Enter a comment here...">
 			<!--<textareea id="comment_input">Enter text here...</textareea>-->
 			<!--<button id="submit-comment-button" ng-click="submitComment()">
 				<img src="images/comment_img.png"/>

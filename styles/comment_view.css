@@ -53,6 +53,11 @@
 			padding:0;
 		}
 
+	#comment-wrapper {
+		overflow-x:hidden;
+		overflow-y:scroll;
+		max-height:75%;
+	}
 	#comment_view_comments {
 		display:block;
 		height:70%;
@@ -60,24 +65,29 @@
 		margin-top:5%;
 		margin-left:5%;
 		margin-right:5%;
-		padding:0;
+		padding:0;		
 	}
 		#comment_view_comments li {
 			display:inline-block;
 			list-style-type:none;
 			width:90%;
+			color:#626262;
 			margin-bottom:5%;
 			padding:5%;
 			font-size:2.5em;
 			background-color:#E2E0D8;
 		}
 		#comment_input {
+			position:absolute;
+			bottom:2%;
 			display:block;
 			width:80%;
 			background-color:white;
 			margin:5%;
 			font-size:2.5em;
-			height:5%;
 			border:none;
-			padding:5%;
+			padding-left:5%;
+			padding-right:5%;
+			padding-top:2%;
+			padding-bottom:2%;
 		}

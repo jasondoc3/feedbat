@@ -43,7 +43,7 @@ header {
 		display:block;
 		text-align:center;
 		height:10% !important;
-		width:30%;
+		width:40%;
 		margin-left:35%;
 		margin-right:35%;
 		text-align:center;
@@ -58,11 +58,26 @@ header {
 			padding:0;
 			color:#80277E;
 		}
+		#next_button_container {
+			float:right;
+			width:20%;
+			margin:0;
+			padding:0;
+			height:100%;
+		}
+		#prev_button_container {
+			float:left;
+			width:20%;
+			margin:0;
+			padding:0;
+			height:100%;
+		}
 		#header-nav #prev_view {
 			border:none;
 			background:none;
 			position:relative;
 			float:left;
+			margin-left:20%;
 			top:24%;
 			height:30%;
 		} 
@@ -70,6 +85,7 @@ header {
 			border:none;
 			background:none;
 			position:relative;
+			margin-right:20%;
 			float:right;
 			top:24%;
 			height:30%;
