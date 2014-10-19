@@ -5,6 +5,7 @@
 		<title>Feedbat</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
 		<link rel="stylesheet" href="styles/feed.css" type="text/css">
+		<link rel="stylesheet" href="styles/animate.css">
 		<script src="http://cdn.pubnub.com/pubnub.min.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		
@@ -18,7 +19,7 @@
 	</head>
 	<body ng-app='FeedbatApp' ng-controller="FeedbatController">
 		<!-- FEED MARKUP -->
-		<main >
+		<main id="feedbat_view">
 			<header>
 				<img id="mini-logo" src="images/mini_logo.png"/>
 				<nav id="view-navigation">
@@ -29,14 +30,14 @@
 			</header> 
 			<img id="current-feedbat" src="images/sample_feedbat.png"/>
 			<footer "comment-and-tip-container">
-				<button id="comment-button" class="feed-control-button"> <img src="images/comment_img.png"/> </button>
+				<button ng-click="openCommentView()" id="comment-button" class="feed-control-button"> <img src="images/comment_img.png"/> </button>
 				<button id="tip-button" class="feed-control-button"> <img src="images/tip_img.png"/> </button>
 			</footer>
 		</main>
 		<!-- END FEED MARKUP -->
 
 		<!-- START COMMENT VIEW -->
-		<main id="comment_view"></main>
+		<main id="comment_view" class="animated bounceInUp"></main>
 		<!-- END COMMENT VIEW -->
 
 		<!-- START TIP VIEW -->

@@ -6,6 +6,10 @@ FeedbatApp.controller('FeedbatController', function ($scope) {
 	$scope.aTestFunction = function(i) {
 		alert('called');
 	}
+
+	$scope.openCommentView = function(){
+		alert('openCommentView()');
+	}
 });
 
 $(document).ready(function () {
