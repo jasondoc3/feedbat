@@ -9,13 +9,13 @@ function afterPhotoUpload(event, data) {
 			uuid: localStorage.feed_bat_uuid,
 		},
 		callback: function(message) {
-			createNewChannel(image_id);
+			createNewChannel(image_id, image_url);
 		}
 	});
 	$('#my-current-feedbat').attr('src', image_url);
 }
 
-function createNewChannel(image_id) {
+function createNewChannel(image_id, image_url) {
 	pubnub.publish({
 		channel: image_id + "-feedbat",
 		message: {
@@ -24,7 +24,8 @@ function createNewChannel(image_id) {
 		},
 		callback: function(m) {
 			/* so the user can subscribe to his / her current channel */
-			localStorage.feed_bat_image = image_id + "-feedbat";
+			localStorage.feed_bat_image_channel = image_id + "-feedbat";
+			localStorage.feed_bat_image_url = image_url;
 		}
 	});
 }
