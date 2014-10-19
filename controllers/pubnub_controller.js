@@ -151,7 +151,7 @@ function addComment(comm) {
 }
 
 function switchData(next_view) {
-	if(next_view == "me") {
+	if(next_view == "mybat") {
 		var prev_channel = $('#upvote-current-feedbat').attr('data-channel');
 		pubnub.unsubscribe({ channel: prev_channel });
 		pubnub.history({
