@@ -1,4 +1,4 @@
-#me {
+#mybat {
 	position:fixed;
 	top:0;
 	left:0;
@@ -21,7 +21,7 @@
 	position: relative;
 }
 
-	#me #my-current-feedbat {
+	#mybat #my-current-feedbat {
 		display:block;
 		position:fixed;
 		top:0px;
@@ -32,7 +32,7 @@
 		vertical-align:middle;
 	}
 
-	#me footer {
+	#mybat footer {
 		width:100%;
 		position:fixed;
 		height:20%;

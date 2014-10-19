@@ -5,8 +5,8 @@ var FeedbatApp = angular.module('FeedbatApp', []).run(function() {
   });
 
 FeedbatApp.controller('FeedbatController', function ($scope) {
-	$scope.view_title = "feed",
-	$scope.titles = ['feed', 'me'],
+	$scope.view_title = "feedbats",
+	$scope.titles = ['feedbats', 'mybat'],
 
 	$scope.rotateParentViews = function(where){
 		var i;
