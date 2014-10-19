@@ -151,7 +151,7 @@ var x = new Swipeable($("#current-feedbat")[0]);
 window.scrollTo(0,1);
 	var comment_input = $("#comment_input")[0];
 	comment_input.addEventListener('keydown',function(e){
-		if(e.keyCode == 13){
+		if(e.keyCode == 13 && $(this).val() != ""){
 			addComment( $(this).val() );
 			$(this).val("");
 		}
