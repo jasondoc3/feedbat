@@ -94,6 +94,7 @@ FeedbatApp.controller('FeedbatController', function ($scope) {
 });
 
 /* scott's crap */
+
 function Swipeable(el){
 	var start_coords = {};
 	var self = this;
@@ -118,7 +119,6 @@ function Swipeable(el){
 		e = self.getCoords(e);
 		start_coords.x = e.x;
 		el.addEventListener(end,self._onEnd,false);
-		console.log("hi")
 	};
 	
 	this._onEnd = function(e){
@@ -127,11 +127,10 @@ function Swipeable(el){
 		el.removeEventListener(end,self._onEnd);
 		if(e.x - start_coords.x > 100) {
 			$(el).addClass('animated fadeOutRight');
-			direction = 'right';
+			direction = 'right';aud.play();
 		} else if(e.x - start_coords.x < -100) {
 			$(el).addClass('animated fadeOutLeft');
-			direction = 'left';
-			console.log("bye");
+			direction = 'left';aud.play();
 		}
 
 		setTimeout(function() {
@@ -147,8 +146,11 @@ function Swipeable(el){
 		
 }
 
+var aud;
 $(document).ready(function () {
 var x = new Swipeable($("#current-feedbat")[0]);
+
+aud = new Audio("ward_activate.mp3");
 window.scrollTo(0,1);
 	var comment_input = $("#comment_input")[0];
 	comment_input.addEventListener('keydown',function(e){
