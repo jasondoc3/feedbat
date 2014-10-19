@@ -1,5 +1,3 @@
-var globalIndex = 0;
-
 function afterPhotoUpload(event, data) {
 	var image_url = data.result.url;
 	var image_id = data.result.public_id;
@@ -38,14 +36,15 @@ function getFeedBatData() {
     count: 10,
     callback: function(feedbats) {
     	window.feedbats = feedbats[0];
+    	var random_index = Math.floor(Math.random()*window.feedbats.length);
 
     	if(localStorage.feed_bat_uuid) {
-    		while(window.feedbats[globalIndex].uuid == localStorage.feed_bat_uuid) {
-    			globalIndexHandler();
+    		while(window.feedbats[random_index].uuid == localStorage.feed_bat_uuid) {
+    			random_index = Math.floor(Math.random()*window.feedbats.length);
     		}
     	}
 
-    	getVoteData(globalIndex);
+    	getVoteData(random_index);
     }
 	});
 }
@@ -55,7 +54,7 @@ function parseComments(arr){
 	feed_comments = new Array();
 	if(!arr) arr = [];
 	console.log(arr);
-	for(var i = 0; i < arr.length; i++) if(arr[i] != "") feed_comments.push(arr[i]);
+	for(var i = 0; i < arr.length; i++) feed_comments.push(arr[i]);
 	var cont = $("#comment_view_comments");
 	cont.empty();
 	for(var i = 0; i < feed_comments.length; i++) cont.append(
@@ -66,21 +65,21 @@ function parseComments(arr){
 }
 
 
-function getVoteData(index) {
+function getVoteData(random_index) {
   pubnub.history({
-    channel: window.feedbats[index].id + '-feedbat',
+    channel: window.feedbats[random_index].id + '-feedbat',
     count: 1,
     callback: function(m) {
     	var vote_data = m[0][0];
-			$('#current-feedbat').attr('src', window.feedbats[index].url);
+			$('#current-feedbat').attr('src', window.feedbats[random_index].url);
 			$('#downvote-value').html(vote_data.downvotes);
 			$('#upvote-value').html(vote_data.upvotes);
 			parseComments(vote_data.comments);
-			$('#upvote-current-feedbat, #downvote-current-feedbat').attr("data-channel", window.feedbats[index].id + "-feedbat");
+			$('#upvote-current-feedbat, #downvote-current-feedbat').attr("data-channel", window.feedbats[random_index].id + "-feedbat");
 			setTimeout(function() { $('#current-feedbat').removeClass(); }, 600);
 
 			pubnub.subscribe({
-				channel: window.feedbats[index].id + '-feedbat',
+				channel: window.feedbats[random_index].id + '-feedbat',
 				message: function(m) { console.log(m) },
 				callback: function(m) {
 					$('#upvote-value').html(m.upvotes);
@@ -181,24 +180,28 @@ function switchData(next_view) {
 			pubnub.unsubscribe({ channel: localStorage.feed_bat_image_channel });
 		}
 		$('#current-feedbat').attr('src', "");
-		getVoteData(globalIndex);
-		globalIndexHandler();
+		var random_index = getRandomIndex();
+		getVoteData(random_index);
 	}
 }
 
 function nextFeedBat(previous_channel) {
+	var random_index = getRandomIndex();
 	pubnub.unsubscribe({ channel: previous_channel });
-	getVoteData(globalIndex);
-	globalIndexHandler();
+	getVoteData(random_index);
 }
 
 function listenForFeedBats(feedbat) {
 	window.feedbats.push(feedbat);
 }
 
-function globalIndexHandler() {
-	globalIndex++;
-	if(globalIndex >= window.feedbats.length) {
-		globalIndex = 0;
+function getRandomIndex() {
+	var random_index = Math.floor(Math.random()*window.feedbats.length);
+
+	if(localStorage.feed_bat_uuid) {
+    while(window.feedbats[random_index].uuid == localStorage.feed_bat_uuid) {
+    	random_index = Math.floor(Math.random()*window.feedbats.length);
+    }
 	}
+	return random_index;
 }
