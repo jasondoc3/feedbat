@@ -36,14 +36,32 @@ function getFeedBatData() {
     count: 10,
     callback: function(feedbats) { 
     	window.feedbats = feedbats[0];
+    	var random_index = Math.floor(Math.random()*window.feedbats.length);
+
+    	if(localStorage.feed_bat_uuid) {
+    		while(window.feedbats[random_index].uuid == localStorage.feed_bat_uuid) {
+    			random_index = Math.floor(Math.random()*window.feedbats.length);
+    		}
+    	}
+
+    	getVoteData(random_index);
     }
 	});
 }
 
-function listenForFeedBats(feedbat) {
-	window.feedbats.push(feedbat);
+function getVoteData(random_index) {
+  pubnub.history({
+    channel: window.feedbats[random_index].id + '-feedbat',
+    count: 1,
+    callback: function(m) {
+    	var vote_data = m[0][0];
+			$('#current-feedbat').attr('src', window.feedbats[random_index].url);
+			$('#downvote-value').html(vote_data.downvotes);
+			$('#upvote-value').html(vote_data.upvotes);
+    }
+  });
 }
 
-function updateVotes(feedbat) {
-
+function listenForFeedBats(feedbat) {
+	window.feedbats.push(feedbat);
 }
