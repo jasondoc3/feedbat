@@ -57,7 +57,10 @@ function parseComments(arr){
 	for(var i = 0; i < arr.length; i++) feed_comments.push(arr[i]);
 	var cont = $("#comment_view_comments");
 	cont.empty();
-	for(var i = 0; i < feed_comments.length; i++) cont.append($("<li />",{class:"comment_blurb",text:feed_comments[i]}));
+	for(var i = 0; i < feed_comments.length; i++) cont.append(
+		$("<li />",{text:feed_comments[i]}).append(
+			$("<img />",{class:"comment_blurb",src="images/comment_blurb.png"})
+		);
 }
 
 
