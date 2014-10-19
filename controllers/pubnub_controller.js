@@ -161,6 +161,7 @@ function switchData(next_view) {
 				var img_data = m[0][0];
 				$('#downvote-value').html(img_data.downvotes);
 				$('#upvote-value').html(img_data.upvotes);
+				parseComments(img_data.comments);
 				// update comments
 
 				pubnub.subscribe({
