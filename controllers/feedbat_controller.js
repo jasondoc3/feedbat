@@ -145,11 +145,18 @@ function Swipeable(el){
 $(document).ready(function () {
 var x = new Swipeable($("#current-feedbat")[0]);
 window.scrollTo(0,1);
-	$("#comment_input")[0].addEventListener('keydown',function(e){
+	var comment_input = $("#comment_input")[0];
+	comment_input.addEventListener('keydown',function(e){
 		if(e.keyCode == 13){
 			addComment( $(this).val() );
 			$(this).val("");
 		}
+	},false);
+	comment_input.addEventListener('focus',function(e){
+		if($(this).val() == "Enter a comment here...") $(this).val("");
+	},false);
+	comment_input.addEventListener('blur',function(e){
+		if($(this).val() == "") $(this).val("Enter a comment here...");
 	},false);
 	
 });
