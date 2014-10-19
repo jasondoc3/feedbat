@@ -28,13 +28,13 @@
 		<!-- FEED MARKUP -->
 		<main>
 			<header>
-				<img id="mini-logo" src="images/mini_logo.png"/>
-				<nav id="view-navigation">
-					<button ng-click="aTestFunction()"> <img id="prev-view" src="images/prev_view.png"/> </button>
-					<h1>{{ view_title }}</h1>
-					<button> <img id="mini_logo" src="images/next_view.png"/> </button>
-				</nav>
 			</header> 
+			<img id="mini-logo" src="images/mini_logo.png"/>
+			<nav id="feed_header_nav">	
+				<img id="prev_view" src="images/prev_view.png"/>
+				<h1>{{ view_title }}</h1>
+				<img id="next_view" src="images/next_view.png"/>
+			</nav>
 			<img id="current-feedbat" src="images/sample_feedbat.png"/>
 			<footer "comment-and-tip-container">
 				<button id="comment-button" class="feed-control-button" ng-click="openCommentView()"> <img src="images/comment_img.png"/> </button>
@@ -45,7 +45,7 @@
 
 		<!-- START COMMENT VIEW -->
 		<main id="comment_view" class="hide-sub-view">
-			<header><img src="images/comment_close_img.png"/></header>
+			<header><img src="images/comment_close_img.png" ng-click="closeCommentView()"/></header>
 			<ul id="comment_view_comments">
 				<li>Shit nigga look at all those purple penguins. Shit nigga look at all those purple penguins. Shit nigga look at all those purple penguins.</li>
 				<li>asdfasdfa</li>

@@ -15,33 +15,48 @@ header {
 	background-color:#E4E2D9;
 	opacity:.9;
 	margin:0;
+	z-index:0;
 	text-align:center;
 }
-	header #mini-logo{
-		float:left;
-		width:10%;
-		max-width:10%;
-		max-height:100%;
-		
+	#mini-logo{
+		position:absolute;
+		top:1%;
+		left:1%;
+		height:3%;
+		margin:0;
+		padding:0;
+		z-index:1;
 	}
-	header #view-navigation {
-		height:100%;
+	#feed_header_nav {
+		position:absolute;
+		display:block;
+		text-align:center;
+		height:5%;
+		width:40%;
+		margin-left:30%;
+		margin-right:30%;
+		text-align:center;
 	}
-		header #view-navigation h1 {
-			display:inline;
-			font-size:3em;
+		#feed_header_nav h1 {
+			display: inline;
+			font-size:3.5em;
+			line-height:100%;
 			color:#80277E;
 			margin:0;
 			padding:0;
-			vertical-align: center;
+			margin-left:5%;
+			margin-right:5%;
 		}
-		header #view-navigation button {
-			background:none;
-			border:none;
+		#feed_header_nav #prev_view {
+			float:left;
+			padding-top:3%;
+			height:50%;
 		}
-			header #view-navigation button img {
-				height: 3em;
-			}
+		#feed_header_nav #next_view {
+			float:right;
+			padding-top:3%;
+			height:50%;
+		}
 
 #current-feedbat {
 	display:block;
