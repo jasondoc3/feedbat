@@ -56,24 +56,41 @@ header {
 			color:#80277E;
 		}
 		#header-nav #prev_view {
+			border:none;
+			background:none;
 			position:relative;
 			float:left;
 			top:24%;
 			height:30%;
-		}
+		} 
 		#header-nav #next_view {
+			border:none;
+			background:none;
 			position:relative;
 			float:right;
 			top:24%;
 			height:30%;
 		}
 
+#downvote-current-feedbat {
+	position:fixed;
+	width:15%;
+	bottom:2%;
+	left:76%;
+	opacity:.75;
+}
+#upvote-current-feedbat {
+	position:fixed;
+	width:15%;
+	bottom:1%;
+	right:76%;
+	opacity:.75;
+}
 #current-feedbat {
 	display:block;
 	position:fixed;
 	top:0px;
 	left:0px;
-
 	width:100%;
 	margin:auto;
 	z-index:-1;
@@ -84,10 +101,12 @@ footer {
 	position:fixed;
 	bottom:0px;
 	left:0px;
-	width:100%;
+	margin-left:25%;
+	width:50%;
 	height:10%;
 }
 	.feed-control-button {
+		position:relative;
 		width:50%;
 		height:100%;
 		opacity:.9;
@@ -96,16 +115,20 @@ footer {
 		border:none;
 	}
 		#comment-button {
-			background-color:#B869AA;
+			background-color:transparent
 		}
 			#comment-button img {
-				height: 70%;
+				position:relative;
+				left:15%;
+				height: 55%;
 			}
 		#tip-button {
-			background-color:#81277F;
+			background-color:transparent;
 		}
 			#tip-button img {
-				height: 70%;
+				position:relative;
+				right:15%;
+				height: 63%;
 			}
 
 .hide-view {
