@@ -8,6 +8,7 @@ FeedbatApp.controller('FeedbatController', function ($scope) {
 	}
 
 	$scope.openCommentView= function(){
+		
 		$("#comment_view").removeClass('hide-sub-view').addClass("animated bounceInUp")
 	}
 	$scope.openTipView = function(){
