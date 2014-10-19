@@ -19,11 +19,25 @@ function createNewChannel(image_id) {
 		message: {
 			upvotes: 0,
 			downvotes: 0
-		}
+		},
 		callback: function(m) {
 			localStorage.feedbatImage = image_id + "-feedbat";
 		}
 	});
+}
+
+function getFeedBatData() {
+	pubnub.history({
+    channel: 'feed_bat',
+    count: 10,
+    callback: function(feedbats) { 
+    	window.feedbats = feedbats[0];
+    }
+	});
+}
+
+function listenForFeedBats(feedbat) {
+	window.feedbats.push(feedbat);
 }
 
 function afterUpvote(image_id){
