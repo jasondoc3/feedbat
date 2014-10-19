@@ -1,3 +1,5 @@
+var globalIndex = 0;
+
 function afterPhotoUpload(event, data) {
 	var image_url = data.result.url;
 	var image_id = data.result.public_id;
@@ -36,15 +38,14 @@ function getFeedBatData() {
     count: 10,
     callback: function(feedbats) {
     	window.feedbats = feedbats[0];
-    	var random_index = Math.floor(Math.random()*window.feedbats.length);
 
     	if(localStorage.feed_bat_uuid) {
-    		while(window.feedbats[random_index].uuid == localStorage.feed_bat_uuid) {
-    			random_index = Math.floor(Math.random()*window.feedbats.length);
+    		while(window.feedbats[globalIndex].uuid == localStorage.feed_bat_uuid) {
+    			globalIndexHandler();
     		}
     	}
 
-    	getVoteData(random_index);
+    	getVoteData(globalIndex);
     }
 	});
 }
@@ -65,21 +66,21 @@ function parseComments(arr){
 }
 
 
-function getVoteData(random_index) {
+function getVoteData(index) {
   pubnub.history({
-    channel: window.feedbats[random_index].id + '-feedbat',
+    channel: window.feedbats[index].id + '-feedbat',
     count: 1,
     callback: function(m) {
     	var vote_data = m[0][0];
-			$('#current-feedbat').attr('src', window.feedbats[random_index].url);
+			$('#current-feedbat').attr('src', window.feedbats[index].url);
 			$('#downvote-value').html(vote_data.downvotes);
 			$('#upvote-value').html(vote_data.upvotes);
 			parseComments(vote_data.comments);
-			$('#upvote-current-feedbat, #downvote-current-feedbat').attr("data-channel", window.feedbats[random_index].id + "-feedbat");
+			$('#upvote-current-feedbat, #downvote-current-feedbat').attr("data-channel", window.feedbats[index].id + "-feedbat");
 			setTimeout(function() { $('#current-feedbat').removeClass(); }, 600);
 
 			pubnub.subscribe({
-				channel: window.feedbats[random_index].id + '-feedbat',
+				channel: window.feedbats[index].id + '-feedbat',
 				message: function(m) { console.log(m) },
 				callback: function(m) {
 					$('#upvote-value').html(m.upvotes);
@@ -180,17 +181,24 @@ function switchData(next_view) {
 			pubnub.unsubscribe({ channel: localStorage.feed_bat_image_channel });
 		}
 		$('#current-feedbat').attr('src', "");
-		var random_index = Math.floor(Math.random()*window.feedbats.length);
-		getVoteData(random_index);
+		getVoteData(globalIndex);
+		globalIndexHandler();
 	}
 }
 
 function nextFeedBat(previous_channel) {
-	var random_index = Math.floor(Math.random()*window.feedbats.length);
 	pubnub.unsubscribe({ channel: previous_channel });
-	getVoteData(random_index);
+	getVoteData(globalIndex);
+	globalIndexHandler();
 }
 
 function listenForFeedBats(feedbat) {
 	window.feedbats.push(feedbat);
+}
+
+function globalIndexHandler() {
+	globalIndex++;
+	if(globalIndex >= window.feedbats.length) {
+		globalIndex = 0;
+	}
 }
