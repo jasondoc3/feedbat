@@ -27,11 +27,12 @@
 		opacity:.9;
 		bottom:0;
 		left:0;
-		background-color:#7F277D;
-		text-align:center;
+		background-color:#FFC900;
 	}
 		#me footer h3 {
 			font-size:3em;
-			line-height:100%;
-			color:#E2E0D8;
+			line-height:110%;
+			color:#7F277D;
+			vertical-align:middle;
+			text-align:center;
 		}

@@ -1,8 +1,8 @@
 var FeedbatApp = angular.module('FeedbatApp', []);
 
 FeedbatApp.controller('FeedbatController', function ($scope) {
-	$scope.view_title = "feedbat",
-	$scope.titles = ['feedbat', 'me'],
+	$scope.view_title = "feed",
+	$scope.titles = ['feed', 'me'],
 
 	$scope.rotateParentViews = function(where){
 		var i;
@@ -32,6 +32,7 @@ FeedbatApp.controller('FeedbatController', function ($scope) {
 				$("#" + this_view).addClass('hide-view')
 			}, 1000);*/
 		}
+
 		// click previous view
 		if(where === 'prev') {
 			for(i=0;i<$scope.titles.length;i++) {
@@ -63,8 +64,8 @@ FeedbatApp.controller('FeedbatController', function ($scope) {
 			}
 		}
 		$("#" + curr_view).removeClass('bring-to-front animated bounceInRight bounceInLeft');
-		$("#feedbat").removeClass('hide-view').addClass("animated bounceInRight bring-to-front");
-		$('#view_title').text('feedbat');
+		$("#feed").removeClass('hide-view').addClass("animated bounceInRight bring-to-front");
+		$('#view_title').text('feed');
 	},
 
 	$scope.openCommentView = function(){
@@ -82,50 +83,43 @@ FeedbatApp.controller('FeedbatController', function ($scope) {
 });
 
 $(document).ready(function () {
-	
-});
-
-/* scott's crap */
-function Swipeable(el){
-	var start_coords = {};
-	var self = this;
-	
-	
-    var isTouch = 'ontouchstart' in window;
-	
-	var start = (isTouch) ? 'touchstart' : 'mousedown';
-	var end = (isTouch) ? 'touchend' : 'mouseup';
-	
-	this.getCoords = function(e){
-		if(!(e instanceof TouchEvent)) return e; // for mouse stuff.
-        
-		data = e.touches && e.touches.length ? e.touches : e.changedTouches;
-		return {
-        x: data[0].pageX,
-        y: data[0].pageY
-      };
-	}
-	
-	this._onStart = function(e){
-		e = self.getCoords(e);
-		start_coords.x = e.x;
-		el.addEventListener(end,self._onEnd,false);
-		console.log("hi")
-	};
-	
-	this._onEnd = function(e){
-		e = self.getCoords(e);
-		el.removeEventListener(end,self._onEnd);
-		if(e.x - start_coords.x > 100) $(el).addClass('animated fadeOutRight');
-		else if(e.x - start_coords.x < -100) $(el).addClass('animated fadeOutLeft');
-		console.log("bye");
-	};
-	
-	el.addEventListener(start,this._onStart,false);
+	var x = new Swipeable($("#current-feedbat")[0]);
+	/* scott's crap */
+	function Swipeable(el){
+		var start_coords = {};
+		var self = this;
 		
-}
-
-$(document).ready(function () {
-var x = new Swipeable($("#current-feedbat")[0]);
-	
+		
+	    var isTouch = 'ontouchstart' in window;
+		
+		var start = (isTouch) ? 'touchstart' : 'mousedown';
+		var end = (isTouch) ? 'touchend' : 'mouseup';
+		
+		this.getCoords = function(e){
+			if(!(e instanceof TouchEvent)) return e; // for mouse stuff.
+	        
+			data = e.touches && e.touches.length ? e.touches : e.changedTouches;
+			return {
+	        x: data[0].pageX,
+	        y: data[0].pageY
+	      };
+		}
+		
+		this._onStart = function(e){
+			e = self.getCoords(e);
+			start_coords.x = e.x;
+			el.addEventListener(end,self._onEnd,false);
+		};
+		
+		this._onEnd = function(e){
+			e = self.getCoords(e);
+			el.removeEventListener(end,self._onEnd);
+			if(e.x - start_coords.x > 100) $(el).addClass('animated fadeOutRight');
+			else if(e.x - start_coords.x < -100) $(el).addClass('animated fadeOutLeft');
+			
+			//trigger success state here
+		};
+		
+		el.addEventListener(start,this._onStart,false);		
+	}	
 });

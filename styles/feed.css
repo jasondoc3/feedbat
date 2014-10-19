@@ -5,7 +5,7 @@ body {
 button {
 	cursor:pointer;
 }
-#feedbat {
+#feed {
 	position:fixed;
 	top:0;
 	left:0;
@@ -41,6 +41,7 @@ header {
 		display:block;
 		text-align:center;
 		height:5%;
+		max-height:5%;
 		width:40%;
 		margin-left:30%;
 		margin-right:30%;
