@@ -59,6 +59,15 @@ function getVoteData(random_index) {
 			$('#downvote-value').html(vote_data.downvotes);
 			$('#upvote-value').html(vote_data.upvotes);
 			$('#upvote-current-feedbat, #downvote-current-feedbat').attr("data-channel", window.feedbats[random_index].id + "-feedbat");
+
+			pubnub.subscribe({
+				channel: window.feedbats[random_index].id + '-feedbat',
+				message: function(m) { console.log(m) },
+				callback: function(m) {
+					$('#upvote-value').html(m.upvotes);
+					$('#downvote-value').html(m.downvotes);
+				}
+			});
     }
   });
 }
@@ -77,6 +86,7 @@ function upVote() {
 		callback: function(m) {
 			var val = parseInt($('#upvote-value').html());
 			$('#upvote-value').html(val + 1);
+			nextFeedBat(channel);
 		}
 	});
 }
@@ -95,8 +105,15 @@ function downVote() {
 		callback: function(m) {
 			var val = parseInt($('#downvote-value').html());
 			$('#downvote-value').html(val + 1);
+			nextFeedBat(channel);
 		}
 	});
+}
+
+function nextFeedBat(previous_channel) {
+	var random_index = Math.floor(Math.random()*window.feedbats.length);
+	pubnub.unsubscribe({ channel: previous_channel });
+	getVoteData(random_index);
 }
 
 function listenForFeedBats(feedbat) {
