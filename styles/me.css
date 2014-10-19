@@ -9,6 +9,18 @@
 	height:100%;
 }
 
+#upload_image {
+	opacity: 0;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+}
+
+#add-new-feedbat {
+	position: relative;
+}
+
 	#me #my-current-feedbat {
 		display:block;
 		position:fixed;

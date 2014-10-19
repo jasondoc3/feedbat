@@ -5,12 +5,14 @@ function afterPhotoUpload(event, data) {
 		channel: "feed_bat",
 		message: {
 			url: image_url,
-			id: image_id
+			id: image_id,
+			uuid: localStorage.feed_bat_uuid,
 		},
 		callback: function(message) {
 			createNewChannel(image_id);
 		}
 	});
+	$('#my-current-feedbat').attr('src', image_url);
 }
 
 function createNewChannel(image_id) {
@@ -21,7 +23,8 @@ function createNewChannel(image_id) {
 			downvotes: 0
 		},
 		callback: function(m) {
-			localStorage.feedbatImage = image_id + "-feedbat";
+			/* so the user can subscribe to his / her current channel */
+			localStorage.feed_bat_image = image_id + "-feedbat";
 		}
 	});
 }
@@ -40,6 +43,6 @@ function listenForFeedBats(feedbat) {
 	window.feedbats.push(feedbat);
 }
 
-function afterUpvote(image_id){
+function updateVotes(feedbat) {
 
 }
