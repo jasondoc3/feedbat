@@ -19,6 +19,11 @@ function createNewChannel(image_id, image_url) {
 	$('#downvote-value').html(0);
 	$('#upvote-value').html(0);
 	parseComments([]);
+
+	if(localStorage.feed_bat_image_channel) {
+		pubnub.unsubscribe({ channel: localStorage.feed_bat_image_channel });
+	}
+
 	pubnub.publish({
 		channel: image_id + "-feedbat",
 		message: {
@@ -30,6 +35,12 @@ function createNewChannel(image_id, image_url) {
 			/* so the user can subscribe to his / her current channel */
 			localStorage.feed_bat_image_channel = image_id + "-feedbat";
 			localStorage.feed_bat_image_url = image_url;
+
+			pubnub.subscribe({
+				channel: image_id + "-feedbat",
+				message: function(m) { console.log(m); },
+				callback: function() {} 
+			});
 		}
 	});
 }
