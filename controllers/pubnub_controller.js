@@ -49,6 +49,18 @@ function getFeedBatData() {
 	});
 }
 
+var feed_comments = new Array();
+function parseComments(arr){
+	feed_comments = new Array();
+	if(!arr) arr = [];
+	console.log(arr);
+	for(var i = 0; i < arr.length; i++) feed_comments.push(arr[i]);
+	var cont = $("#comment_view_comments");
+	cont.empty();
+	for(var i = 0; i < feed_comments.length; i++) cont.append($("<li />",{text:feed_comments[i]}));
+}
+
+
 function getVoteData(random_index) {
   pubnub.history({
     channel: window.feedbats[random_index].id + '-feedbat',
@@ -58,6 +70,7 @@ function getVoteData(random_index) {
 			$('#current-feedbat').attr('src', window.feedbats[random_index].url);
 			$('#downvote-value').html(vote_data.downvotes);
 			$('#upvote-value').html(vote_data.upvotes);
+			parseComments(vote_data.comments);
 			$('#upvote-current-feedbat, #downvote-current-feedbat').attr("data-channel", window.feedbats[random_index].id + "-feedbat");
 			setTimeout(function() { $('#current-feedbat').removeClass(); }, 600);
 
@@ -67,6 +80,7 @@ function getVoteData(random_index) {
 				callback: function(m) {
 					$('#upvote-value').html(m.upvotes);
 					$('#downvote-value').html(m.downvotes);
+					parseComments(m.comments);
 				}
 			});
     }
@@ -82,7 +96,8 @@ function upVote() {
 		channel: channel,
 		message: {
 			upvotes: upvotes,
-			downvotes: downvotes
+			downvotes: downvotes,
+			comments: feed_comments
 		},
 		callback: function(m) {
 			var val = parseInt($('#upvote-value').html());
@@ -101,7 +116,8 @@ function downVote() {
 		channel: channel,
 		message: {
 			upvotes: upvotes,
-			downvotes: downvotes
+			downvotes: downvotes,
+			comments: feed_comments
 		},
 		callback: function(m) {
 			var val = parseInt($('#downvote-value').html());
@@ -110,6 +126,27 @@ function downVote() {
 		}
 	});
 }
+
+
+function addComment(comm) {
+	var channel = $("#upvote-current-feedbat").attr('data-channel');
+	var upvotes = parseInt($('#upvote-value').html());
+	var downvotes = parseInt($('#downvote-value').html()) + 1;
+	feed_comments.push(comm);
+
+	pubnub.publish({
+		channel: channel,
+		message: {
+			upvotes: upvotes,
+			downvotes: downvotes,
+			comments: feed_comments
+		},
+		callback: function(m) {
+			parseComments(feed_comments);
+		}
+	});
+}
+
 
 function nextFeedBat(previous_channel) {
 	var random_index = Math.floor(Math.random()*window.feedbats.length);
