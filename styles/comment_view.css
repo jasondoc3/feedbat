@@ -68,6 +68,7 @@
 		padding:0;		
 	}
 		#comment_view_comments li {
+			position:relative;
 			display:inline-block;
 			list-style-type:none;
 			width:90%;
@@ -76,6 +77,13 @@
 			padding:5%;
 			font-size:2.5em;
 			background-color:#E2E0D8;
+		}
+
+		#comment_blurb {
+			position:absolute;
+			width:10%;
+			left:0px;
+			bottom:0px;
 		}
 		#comment_input {
 			position:absolute;
