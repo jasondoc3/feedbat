@@ -29,7 +29,7 @@ header {
 	}
 		header #view-navigation h1 {
 			display:inline;
-			font-size:1.5em;
+			font-size:3em;
 			color:#80277E;
 			margin:0;
 			padding:0;
@@ -40,7 +40,7 @@ header {
 			border:none;
 		}
 			header #view-navigation button img {
-				height: 1.5em;
+				height: 3em;
 			}
 
 #current-feedbat {
