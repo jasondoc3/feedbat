@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="styles/feed.css" type="text/css">
 		<link rel="stylesheet" href="styles/comment_view.css" type="text/css">
 		<link rel="stylesheet" href="lib/animate.css" type="text/css">
+		<link rel="stylesheet" href="styles/me.css" type="text/css">
 
 		<script src="lib/pubnub.min.js" type="text/javascript"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -26,16 +27,19 @@
 	</head>
 
 	<body ng-app='FeedbatApp' ng-controller="FeedbatController">
+		<!-- HEADER MARKUP -->
+		<header>
+		</header> 
+		<img id="mini-logo" ng-click="takeMeToTheFeed()" src="images/mini_logo.png"/>
+		<nav id="header-nav">	
+			<img id="prev_view" src="images/prev_view.png" ng-click="rotateParentViews('prev')"/>
+			<h1 id="view_title">{{ view_title }}</h1>
+			<img id="next_view" src="images/next_view.png" ng-click="rotateParentViews('next')"/>
+		</nav>
+		<!-- END HEADER MARKUP -->
+
 		<!-- FEED MARKUP -->
-		<main>
-			<header>
-			</header> 
-			<img id="mini-logo" src="images/mini_logo.png"/>
-			<nav id="feed_header_nav">	
-				<img id="prev_view" src="images/prev_view.png"/>
-				<h1>{{ view_title }}</h1>
-				<img id="next_view" src="images/next_view.png"/>
-			</nav>
+		<main id="feedbat">
 			<img id="current-feedbat" src="images/sample_feedbat.png"/>
 			<footer "comment-and-tip-container">
 				<button id="comment-button" class="feed-control-button" ng-click="openCommentView()"> <img src="images/comment_img.png"/> </button>
@@ -44,9 +48,25 @@
 		</main> 
 		<!-- END FEED MARKUP -->
 
+		<!-- ME MARKUP -->
+		<main id="me" class="hide-view">
+			<img id="my-current-feedbat" src="images/sample_feedbat.png"/>
+			<footer id="add-new-feedbat">
+				<h3>Change Feedbat</h3>
+			</footer>
+		</main>
+		<!-- END ME MARKUP-->
+
 		<!-- START COMMENT VIEW -->
-		<main id="comment_view" class="hide-sub-view">
-			<header><img src="images/comment_close_img.png" ng-click="closeCommentView()"/></header>
+		<main id="comment_view" class="hide-view">
+			<header>
+				<section id="vote-counts">
+					<img class="vote-value-button" id="downvotes-button" src="images/thumbs_down.png" />
+					<h3 id="downvote-value" class="vote-value">10</h3>
+					<img class="vote-value-button" id="upvotes-button" src="images/thumbs_up.png" />
+					<h3 id="upvote-value" class="vote-value">20</h3>
+				</section>
+				<img id="close-comment-view" src="images/comment_close_img.png" ng-click="closeCommentView()"/></header>
 			<ul id="comment_view_comments">
 				<li>Shit nigga look at all those purple penguins. Shit nigga look at all those purple penguins. Shit nigga look at all those purple penguins.</li>
 				<li>asdfasdfa</li>

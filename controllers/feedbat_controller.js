@@ -2,10 +2,73 @@ var FeedbatApp = angular.module('FeedbatApp', []);
 
 FeedbatApp.controller('FeedbatController', function ($scope) {
 	$scope.view_title = "feedbat",
-	$scope.titles = ['feedbat', 'Me'],
+	$scope.titles = ['feedbat', 'me'],
 
-	$scope.openCommentView = function(){	
-		$("#comment_view").removeClass('hide-sub-view animated bounceOutDown').addClass("animated bounceInUp")
+	$scope.rotateParentViews = function(where){
+		var i;
+		var this_view;
+		var next_view;
+		var prev_view;
+
+		//click next view
+		if(where === 'next') {
+			for(i=0;i<$scope.titles.length;i++) {
+				if($('#view_title').text() == $scope.titles[i]) {
+					this_view = $scope.titles[i];
+					if(i==($scope.titles.length - 1)) {
+						next_view = $scope.titles[0];
+						$('#view_title').text($scope.titles[0]);
+					}
+					else {
+						next_view = $scope.titles[i+1];
+						$('#view_title').text($scope.titles[i+1])
+					}
+					break;
+				}
+			}
+			$("#" + this_view).removeClass('bring-to-front animated bounceInRight bounceInLeft');
+			$("#" + next_view).removeClass('hide-view').addClass("animated bounceInRight bring-to-front");
+			/*setTimeout(function() {
+				$("#" + this_view).addClass('hide-view')
+			}, 1000);*/
+		}
+		// click previous view
+		if(where === 'prev') {
+			for(i=0;i<$scope.titles.length;i++) {
+				if($('#view_title').text() == $scope.titles[i]) {
+					this_view = $scope.titles[i]
+					if(i==0) {
+						prev_view = $scope.titles[$scope.titles.length - 1];
+						$('#view_title').text($scope.titles[$scope.titles.length - 1])
+					}
+					else{
+						prev_view = $scope.titles[i-1];
+						$('#view_title').text($scope.titles[i-1])
+					}
+					break;
+				}
+			}
+			$("#" + this_view).removeClass('bring-to-front animated bounceInRight bounceInLeft');
+			$("#" + prev_view).removeClass('hide-view').addClass("animated bounceInLeft bring-to-front");
+		}
+	},
+
+	$scope.takeMeToTheFeed = function() {
+		var i;
+		var curr_view;
+		for(i=0;i<$scope.titles.length;i++) {
+			if($('#view_title').text() == $scope.titles[i]) {
+				curr_view = $scope.titles[i];
+				break;
+			}
+		}
+		$("#" + curr_view).removeClass('bring-to-front animated bounceInRight bounceInLeft');
+		$("#feedbat").removeClass('hide-view').addClass("animated bounceInRight bring-to-front");
+		$('#view_title').text('feedbat');
+	},
+
+	$scope.openCommentView = function(){
+		$("#comment_view").removeClass('hide-view animated bounceOutDown').addClass("animated bounceInUp ")
 	},
 	
 	$scope.closeCommentView = function() {
@@ -13,7 +76,7 @@ FeedbatApp.controller('FeedbatController', function ($scope) {
 	},
 	
 	$scope.openTipView = function(){
-		$("#tip_view").removeClass('hide-sub-view').addClass("animated bounceInUp")
+
 	}
 	
 });

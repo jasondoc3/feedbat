@@ -1,5 +1,5 @@
 #comment_view {
-	z-index:5;
+	z-index:30;
 	background-color:#B769AA;
 	position:fixed;
 	top:0px;
@@ -16,8 +16,39 @@
 		margin-top:5%;
 		background:transparent;
 	}
-		#comment_view header img{
-			float:right;
+		#vote-counts {
+			height:100%;
+		}
+			.vote-value-button {
+				position:absolute;
+				height:70%;
+			}
+			.vote-value {
+				display:block;
+				position:absolute;
+				font-size:3em;
+				color:#7F277D;
+				line-height:30%;
+			}
+			#downvotes-button {
+				left:10%;
+				top:25%;
+			}
+			#downvote-value {
+				left:20%;
+			}
+			#upvotes-button {
+				left:32%;
+				top:5%;
+			}
+			#upvote-value {
+				left:43%;
+			}
+
+		#close-comment-view{
+			position:absolute;
+			right:0;
+			top:0;
 			height:100%;
 			padding:0;
 		}

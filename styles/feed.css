@@ -5,6 +5,15 @@ body {
 button {
 	cursor:pointer;
 }
+#feedbat {
+	position:fixed;
+	top:0;
+	left:0;
+	margin:0;
+	padding:0;
+	width:100%;
+	height:100%;
+}
 header {
 	display:block;
 	position:fixed;
@@ -15,8 +24,8 @@ header {
 	background-color:#E4E2D9;
 	opacity:.9;
 	margin:0;
-	z-index:0;
 	text-align:center;
+	z-index:20;
 }
 	#mini-logo{
 		position:absolute;
@@ -25,9 +34,9 @@ header {
 		height:3%;
 		margin:0;
 		padding:0;
-		z-index:1;
+		z-index:20;
 	}
-	#feed_header_nav {
+	#header-nav {
 		position:absolute;
 		display:block;
 		text-align:center;
@@ -36,8 +45,9 @@ header {
 		margin-left:30%;
 		margin-right:30%;
 		text-align:center;
+		z-index:20;
 	}
-		#feed_header_nav h1 {
+		#header-nav h1 {
 			display: inline;
 			font-size:3.5em;
 			line-height:100%;
@@ -47,12 +57,12 @@ header {
 			margin-left:5%;
 			margin-right:5%;
 		}
-		#feed_header_nav #prev_view {
+		#header-nav #prev_view {
 			float:left;
 			padding-top:3%;
 			height:50%;
 		}
-		#feed_header_nav #next_view {
+		#header-nav #next_view {
 			float:right;
 			padding-top:3%;
 			height:50%;
@@ -98,6 +108,10 @@ footer {
 				height: 70%;
 			}
 
-.hide-sub-view {
+.hide-view {
 	display:none;
+}
+
+.bring-to-front {
+	z-index:10;
 }
