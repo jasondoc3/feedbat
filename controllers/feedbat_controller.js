@@ -145,5 +145,11 @@ function Swipeable(el){
 $(document).ready(function () {
 var x = new Swipeable($("#current-feedbat")[0]);
 window.scrollTo(0,1);
+	$("#comment_input")[0].addEventListener('keydown',function(e){
+		if(e.keyCode == 13){
+			addComment( $(this).val() );
+			$(this).val("");
+		}
+	},false);
 	
 });
