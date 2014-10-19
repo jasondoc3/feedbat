@@ -3,23 +3,26 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Feedbat</title>
-		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+		
 		<link rel="stylesheet" href="styles/feed.css" type="text/css">
-		<link rel="stylesheet" href="styles/animate.css">
+		<link rel="stylesheet" href="styles/comment_view.css" type="text/css">
+
 		<script src="http://cdn.pubnub.com/pubnub.min.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-		
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
 		<script src="controllers/feedbat_controller.js"></script>
 		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans">
 		<script type="text/javascript" src="lib/api_init.js"></script>
 		<script type="text/javascript" src="lib/jquery.cloudinary.js"></script>
+
 		<meta name="keywords" content="feedbat social media feedback website popular popularity picture video rating">
 		<meta name="description" content="feedbat is a social site where users can upload media anonymously, then receive feedback from other users about the media file they published.">
 		<meta name="author" content="your loving team of feedbat developers">
 	</head>
+
 	<body ng-app='FeedbatApp' ng-controller="FeedbatController">
 		<!-- FEED MARKUP -->
-		<main id="feedbat_view">
+		<!-- <main>
 			<header>
 				<img id="mini-logo" src="images/mini_logo.png"/>
 				<nav id="view-navigation">
@@ -30,18 +33,24 @@
 			</header> 
 			<img id="current-feedbat" src="images/sample_feedbat.png"/>
 			<footer "comment-and-tip-container">
-				<button ng-click="openCommentView()" id="comment-button" class="feed-control-button"> <img src="images/comment_img.png"/> </button>
-				<button ng-click="openTipView()" id="tip-button" class="feed-control-button"> <img src="images/tip_img.png"/> </button>
+				<button id="comment-button" class="feed-control-button"> <img src="images/comment_img.png"/> </button>
+				<button id="tip-button" class="feed-control-button"> <img src="images/tip_img.png"/> </button>
 			</footer>
-		</main>
+		</main> -->
 		<!-- END FEED MARKUP -->
 
 		<!-- START COMMENT VIEW -->
-		<main id="comment_view" class="hidden"></main>
+		<main id="comment_view">
+			<header><img src="images/comment_close_img.png"/></header>
+			<ul id="comment_view_comments">
+				<li>Shit nigga look at all those purple penguins. Shit nigga look at all those purple penguins. Shit nigga look at all those purple penguins.</li>
+				<li></li>
+			</ul>
+		</main>
 		<!-- END COMMENT VIEW -->
 
 		<!-- START TIP VIEW -->
-		<main id="tip_view" class="hidden"></main>
+		<main id="tip_view"></main>
 		<!-- END TIP VIEW -->
 	</body>
 </html>
