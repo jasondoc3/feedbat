@@ -88,7 +88,11 @@ FeedbatApp.controller('FeedbatController', function ($scope) {
 	},
 	
 	$scope.openTipView = function(){
+		$("#tip_view").removeClass('hide-view animated bounceOutDown').addClass("animated bounceInUp ");
+	},
 
+	$scope.closeTipView = function(){
+		$("#tip_view").removeClass('animated bounceInUp').addClass("animated bounceOutDown");
 	}
 	
 });
@@ -167,3 +171,9 @@ window.scrollTo(0,1);
 	},false);
 	
 });
+
+function setBTCAmount(val) {
+	var initial_amount = new Number(.00001);
+	var total = (initial_amount * val).toFixed(5);
+	$('#tip-amount').text(total + ' BTC');
+}

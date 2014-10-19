@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="styles/comment_view.css" type="text/css">
 		<link rel="stylesheet" href="lib/animate.css" type="text/css">
 		<link rel="stylesheet" href="styles/mybat.css" type="text/css">
+		<link rel="stylesheet" href="styles/tip.css" type="text/css">
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
 
 		<script src="lib/pubnub.min.js" type="text/javascript"></script>
@@ -92,7 +93,15 @@
 		<!-- END COMMENT VIEW -->
 
 		<!-- START TIP VIEW -->
-		<!--<main id="tip_view"></main> -->
+		<main id="tip_view" class="hide-view">
+			<header>
+				<img id="close-tip-view" src="images/comment_close_img.png" ng-click="closeTipView()"/>
+			</header>
+			<h1 id="tip-amount">.00015 BTC</h1>
+			<div id="tip-slider"><input id="tip-slider_slider" type="range" min=1 max=100 step=1 value=15 oninput="setBTCAmount(this.value);"></div>
+			<button id="submit-payment">submit</button>
+		</main>
 		<!-- END TIP VIEW -->
+
 	</body>
 </html>
